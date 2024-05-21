@@ -1,0 +1,6 @@
+@CrudRepositoryPatternDiEf_HostAddress = http://localhost:5144
+
+GET {{CrudRepositoryPatternDiEf_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
