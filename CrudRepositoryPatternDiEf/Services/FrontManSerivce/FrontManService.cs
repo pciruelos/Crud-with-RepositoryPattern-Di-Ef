@@ -4,53 +4,62 @@ namespace CrudRepositoryPatternDiEf.Services.FrontManSerivce
 {
     public class FrontManService : IFrontManService
     {
-        private static List<FrontMan> frontMans = new List<FrontMan>
+        //private static List<FrontMan> frontMans = new List<FrontMan>
+        //{
+        //        new FrontMan
+        //        {   Id = 1,
+        //            Name = "fredy mercuri",
+        //            Band = "queen",
+        //            Alive = false
+        //        },
+        //        new FrontMan
+        //        {   Id = 2,
+        //            Name = "indio solari",
+        //            Band = "los redondos",
+        //            Alive = true
+        //        },
+        //};
+        private readonly DataContext _context;
+
+        public FrontManService(DataContext context)
         {
-                new FrontMan
-                {   Id = 1,
-                    Name = "fredy mercuri",
-                    Band = "queen",
-                    Alive = false
-                },
-                new FrontMan
-                {   Id = 2,
-                    Name = "indio solari",
-                    Band = "los redondos",
-                    Alive = true
-                },
-        };
-        public FrontMan AddFrontMan(FrontMan frontMan)
+            _context = context;
+        }
+        public async Task<FrontMan> AddFrontMan(FrontMan frontMan)
         {
-            frontMans.Add(frontMan);
-            return frontMans;
+            _context.FrontMans.Add(frontMan);
+            await _context.SaveChangesAsync();
+            return frontMan;
         }
 
-        public List<FrontMan> DeleteFrontMan(int id)
+        public async Task<List<FrontMan>> DeleteFrontMan(int id)
         {
-            var frontMan = frontMans.Find(x => x.Id == id);
+            var frontMan = await _context.FrontMans.FindAsync(id);
             //if (frontMan == null)
             //{
             //    return null;
             //}
-            frontMans.Remove(frontMan);
+            _context.FrontMans.Remove(frontMan);
+            await _context.SaveChangesAsync();
 
-            return frontMans;
+            return await _context.FrontMans.ToListAsync();
         }
 
-        public List<FrontMan> GetAllFrontMans()
+        public async Task<List<FrontMan>> GetAllFrontMans()
         {
-            return frontMans;
+            var frontmans = await _context.FrontMans.ToListAsync();
+            return frontmans;
         }
 
-        public FrontMan GetFrontMan(int id)
+        public async Task<FrontMan> GetFrontMan(int id)
         {
-            var frontMan = frontMans.Find(x => x.Id == id);
+            var frontMan = await _context.FrontMans.FindAsync(id);
             return frontMan;
         }
 
-        public FrontMan UpdateFrontMan(int id, FrontMan requestFrontMan)
+        public async Task<FrontMan> UpdateFrontMan(int id, FrontMan requestFrontMan)
         {
-            var frontMan = frontMans.Find(x => x.Id == id);
+            var frontMan = await _context.FrontMans.FindAsync(id);
             //if (frontMan == null)
             //{
             //    return NotFound();
@@ -58,6 +67,8 @@ namespace CrudRepositoryPatternDiEf.Services.FrontManSerivce
             frontMan.Name = requestFrontMan.Name;
             frontMan.Band = requestFrontMan.Band;
             frontMan.Alive = requestFrontMan.Alive;
+
+            await _context.SaveChangesAsync();
 
             return frontMan;
         }

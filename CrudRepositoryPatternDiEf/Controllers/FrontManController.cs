@@ -18,7 +18,7 @@ namespace CrudRepositoryPatternDiEf.Controllers
         [HttpGet]
         public async Task<ActionResult<List<FrontMan>>> GetAllFrontMans()
         {
-            var result = _frontManService.GetAllFrontMans();
+            var result = await _frontManService.GetAllFrontMans();
             if (result == null) { return NotFound(); }
             return Ok(result);
         }
@@ -26,7 +26,7 @@ namespace CrudRepositoryPatternDiEf.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<FrontMan>> GetFrontMan(int id)
         {
-            var result = _frontManService.GetFrontMan(id);
+            var result = await _frontManService.GetFrontMan(id);
             if (result == null) { return NotFound(); }
             return Ok(result);
         }
@@ -34,7 +34,7 @@ namespace CrudRepositoryPatternDiEf.Controllers
         [HttpPost]
         public async Task<ActionResult<FrontMan>> AddFrontMan(FrontMan frontMan)
         {
-            var result = _frontManService.AddFrontMan(frontMan);
+            var result = await _frontManService.AddFrontMan(frontMan);
             if (result == null) { return NotFound(); }
             return Ok(result);
         }
@@ -42,7 +42,7 @@ namespace CrudRepositoryPatternDiEf.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<FrontMan>> UpdateFrontMan(int id, FrontMan requestFrontMan)
         {
-            var result = _frontManService.UpdateFrontMan(id, requestFrontMan);
+            var result = await _frontManService.UpdateFrontMan(id, requestFrontMan);
             if (result == null) { return NotFound(); }
             return Ok(result);
         }
@@ -50,7 +50,7 @@ namespace CrudRepositoryPatternDiEf.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<FrontMan>>> DeleteFrontMan(int id)
         {
-            var result = _frontManService.DeleteFrontMan(id);
+            var result = await _frontManService.DeleteFrontMan(id);
             if (result == null) { return NotFound(); }
             return Ok(result);
         }

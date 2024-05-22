@@ -2,11 +2,11 @@
 {
     public interface IFrontManService
     {
-        List<FrontMan> GetAllFrontMans();
-        FrontMan GetFrontMan(int id);
-        FrontMan AddFrontMan(FrontMan frontMan);
-        FrontMan UpdateFrontMan(int id, FrontMan requestFrontMan);
-        List<FrontMan> DeleteFrontMan(int id);
+        Task<List<FrontMan>> GetAllFrontMans();
+        Task<FrontMan> GetFrontMan(int id);
+        Task<FrontMan> AddFrontMan(FrontMan frontMan);
+        Task<FrontMan> UpdateFrontMan(int id, FrontMan requestFrontMan);
+        Task<List<FrontMan>> DeleteFrontMan(int id);
 
     }
 }

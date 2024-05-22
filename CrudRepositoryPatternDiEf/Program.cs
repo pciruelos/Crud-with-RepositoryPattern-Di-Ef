@@ -1,4 +1,5 @@
 global using CrudRepositoryPatternDiEf.Models;
+global using CrudRepositoryPatternDiEf.Data;
 using CrudRepositoryPatternDiEf.Services.FrontManSerivce;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFrontManService, FrontManService>();
+builder.Services.AddDbContext<DataContext>();
 
 var app = builder.Build();
 
