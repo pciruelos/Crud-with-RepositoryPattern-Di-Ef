@@ -1,11 +1,11 @@
 # .NET 8 Web API with Entity Framework 8
 
 ## Overview
-This repository contains a .NET 8 Web API project that demonstrates building a Web API from scratch using Entity Framework 8 for data management. It includes implementation of the CRUD operations for a `SuperHero` model and uses the Repository Pattern with Dependency Injection for clean architecture.
+This repository contains a .NET 8 Web API project that demonstrates building a Web API from scratch using Entity Framework 8 for data management. It includes implementation of the CRUD operations for a `FrontMan` model and uses the Repository Pattern with Dependency Injection for clean architecture.
 
 ## Features
 - **Web API Creation**: Starting from setting up a new Web API project.
-- **Model Definition**: Adding a new `SuperHero` model.
+- **Model Definition**: Adding a new `FrontMan` model.
 - **CRUD Operations**: Implementing Create, Read, Update, and Delete functionalities.
 - **Testing with Swagger**: Using Swagger UI to test API methods.
 - **Repository Pattern**: Organizing code using the Repository Pattern.
@@ -31,10 +31,10 @@ To get started with this project:
 5. Run the application and navigate to `https://localhost:<port>/swagger` to view and test the API endpoints.
 
 ## Key Operations
-- **GET**: Fetch all heroes or a single hero by ID.
-- **POST**: Add a new hero.
-- **PUT**: Update an existing hero.
-- **DELETE**: Remove a hero.
+- **GET**: Fetch all FrontMan or a single hero by ID.
+- **POST**: Add a new FrontMan.
+- **PUT**: Update an existing FrontMan.
+- **DELETE**: Remove a FrontMan.
 
 ## Running Migrations
 To set up and update the database schema:
